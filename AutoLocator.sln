@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoLocator.Wpf.Sample", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoLocator.Wpf", "AutoLocator.Wpf\AutoLocator.Wpf.csproj", "{308B4066-A804-437A-9D23-30DBCA3CC742}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoLocator.Avalonia", "AutoLocator.Avalonia\AutoLocator.Avalonia.csproj", "{58E98ABD-2A4B-4460-BF85-8422DE565841}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoLocator.Avalonia.Sample", "AutoLocator.Avalonia.Sample\AutoLocator.Avalonia.Sample.csproj", "{6D6901E4-0960-49D6-8374-E4CD0B48055D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{308B4066-A804-437A-9D23-30DBCA3CC742}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{308B4066-A804-437A-9D23-30DBCA3CC742}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{308B4066-A804-437A-9D23-30DBCA3CC742}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58E98ABD-2A4B-4460-BF85-8422DE565841}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58E98ABD-2A4B-4460-BF85-8422DE565841}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58E98ABD-2A4B-4460-BF85-8422DE565841}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58E98ABD-2A4B-4460-BF85-8422DE565841}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D6901E4-0960-49D6-8374-E4CD0B48055D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D6901E4-0960-49D6-8374-E4CD0B48055D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D6901E4-0960-49D6-8374-E4CD0B48055D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D6901E4-0960-49D6-8374-E4CD0B48055D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
