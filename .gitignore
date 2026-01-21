@@ -1,0 +1,83 @@
+# Ignore build output directories
+bin/
+obj/
+
+# Ignore user-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Ignore temporary files
+*.tmp
+*.log
+*.vspscc
+*.vssscc
+
+# Ignore compiled files
+*.dll
+*.exe
+*.pdb
+*.cache
+*.ilk
+*.idb
+*.lib
+*.ncb
+*.obj
+*.pch
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tmp
+*.tmp_proj
+*.vspscc
+*.vssscc
+*.class
+*.jar
+*.war
+*.ear
+*.dbmdl
+*.jfm
+
+# Ignore Visual Studio Code settings
+.vscode/
+
+# Ignore NuGet packages
+*.nupkg
+/packages/
+
+# Ignore JetBrains Rider settings
+.idea/
+*.sln.iml
+
+# Ignore other IDE settings
+*.swp
+*.swo
+*.bak
+*.orig
+*.rej
+*.sln.docstates
+
+# Ignore project-specific files
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Ignore logs
+*.log
+
+# Ignore coverage reports
+coverage/
+*.coverage
+*.coveragexml
+*.codecov
+
+# Ignore other system files
+.DS_Store
+Thumbs.db
+
+# Ignore Visual Studio files
+.vs/
