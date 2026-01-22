@@ -3,52 +3,52 @@
 [![.NET](https://img.shields.io/badge/.NET-10.0-512BD4)](https://dotnet.microsoft.com/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-AutoLocator 是一个轻量级的 ViewModel 自动定位和依赖注入框架，支持 WPF 和 Avalonia 平台。本项目的 ViewModelLocator 实现方式**源自于 [Prism](https://github.com/PrismLibrary/Prism) 框架中的 ViewModelLocator**，并在此基础上进行了简化和独立封装，使其可以在非 Prism 项目中独立使用。
+AutoLocator is a lightweight ViewModel auto-location and dependency injection framework for WPF and Avalonia platforms. The ViewModelLocator implementation in this project is **inspired by [Prism](https://github.com/PrismLibrary/Prism) framework's ViewModelLocator**, simplified and independently packaged to be used in non-Prism projects.
 
-## ✨ 特性
+## ✨ Features
 
-- 🎯 **自动 ViewModel 绑定** - 基于命名约定自动将 View 与 ViewModel 关联
-- 💉 **依赖注入支持** - 内置 IoC 容器抽象层，支持 DryIoc
-- 🖥️ **多平台支持** - 同时支持 WPF 和 Avalonia
-- 🔌 **可扩展** - 支持自定义 ViewModel 工厂和容器实现
-- 📦 **轻量级** - 最小化依赖，易于集成
+- 🎯 **Auto ViewModel Binding** - Automatically associates Views with ViewModels based on naming conventions
+- 💉 **Dependency Injection Support** - Built-in IoC container abstraction layer with DryIoc support
+- 🖥️ **Multi-Platform Support** - Supports both WPF and Avalonia
+- 🔌 **Extensible** - Supports custom ViewModel factories and container implementations
+- 📦 **Lightweight** - Minimal dependencies, easy to integrate
 
-## 📁 项目结构
+## 📁 Project Structure
 
 ```
 AutoLocator/
-├── AutoLocator/                    # 核心库 - 容器抽象和依赖注入
-│   ├── Containers/                 # 容器实现
-│   │   ├── DryIocContainer.cs      # DryIoc 容器适配器
-│   │   └── ContainerType.cs        # 容器类型枚举
-│   ├── Interfaces/                 # 接口定义
-│   │   ├── IContainerBase.cs       # 容器基础接口
-│   │   ├── IContainerRegistry.cs   # 服务注册接口
-│   │   ├── IContainerProvider.cs   # 服务解析接口
-│   │   └── IContainerRegistryExtensions.cs  # 泛型扩展方法
-│   └── ContainerProvider.cs        # 静态容器提供者
+├── AutoLocator/                    # Core library - Container abstraction and DI
+│   ├── Containers/                 # Container implementations
+│   │   ├── DryIocContainer.cs      # DryIoc container adapter
+│   │   └── ContainerType.cs        # Container type enum
+│   ├── Interfaces/                 # Interface definitions
+│   │   ├── IContainerBase.cs       # Container base interface
+│   │   ├── IContainerRegistry.cs   # Service registration interface
+│   │   ├── IContainerProvider.cs   # Service resolution interface
+│   │   └── IContainerRegistryExtensions.cs  # Generic extension methods
+│   └── ContainerProvider.cs        # Static container provider
 │
-├── AutoLocator.Wpf/                # WPF 平台支持
-│   ├── ViewModelLocator.cs         # WPF ViewModel 定位器
-│   └── ViewModelLocationProvider.cs # ViewModel 定位提供者
+├── AutoLocator.Wpf/                # WPF platform support
+│   ├── ViewModelLocator.cs         # WPF ViewModel locator
+│   └── ViewModelLocationProvider.cs # ViewModel location provider
 │
-├── AutoLocator.Avalonia/           # Avalonia 平台支持
-│   ├── ViewModelLocator.cs         # Avalonia ViewModel 定位器
-│   └── ViewModelLocatorProvider.cs # ViewModel 定位提供者
+├── AutoLocator.Avalonia/           # Avalonia platform support
+│   ├── ViewModelLocator.cs         # Avalonia ViewModel locator
+│   └── ViewModelLocatorProvider.cs # ViewModel location provider
 │
-├── AutoLocator.Wpf.Sample/         # WPF 示例项目
-└── AutoLocator.Avalonia.Sample/    # Avalonia 示例项目
+├── AutoLocator.Wpf.Sample/         # WPF sample project
+└── AutoLocator.Avalonia.Sample/    # Avalonia sample project
 ```
 
-## 🚀 快速开始
+## 🚀 Quick Start
 
-### 安装
+### Installation
 
-将 `AutoLocator` 和对应平台的库添加到你的项目中。
+Add `AutoLocator` and the corresponding platform library to your project.
 
-### WPF 使用示例
+### WPF Usage Example
 
-#### 1. 初始化容器
+#### 1. Initialize Container
 
 ```csharp
 // App.xaml.cs
@@ -56,25 +56,25 @@ public partial class App : Application
 {
     public App()
     {
-        // 初始化 DryIoc 容器
+        // Initialize DryIoc container
         ContainerProvider.Initialize(ContainerType.DryIoc);
 
-        // 设置 ViewModel 工厂使用容器解析
+        // Set ViewModel factory to use container resolution
         ViewModelLocationProvider.Initialize(ContainerProvider.Current.Resolve);
 
-        // 注册服务
+        // Register services
         RegisterTypes(ContainerProvider.Current);
     }
 
     private void RegisterTypes(IContainerRegistry containerRegistry)
     {
         containerRegistry.Register<AccountService>();
-        // 注册更多服务...
+        // Register more services...
     }
 }
 ```
 
-#### 2. 在 View 中启用自动绑定
+#### 2. Enable Auto Binding in View
 
 ```xml
 <Window x:Class="YourApp.Views.MainWindow"
@@ -86,7 +86,7 @@ public partial class App : Application
 </Window>
 ```
 
-#### 3. 创建 ViewModel
+#### 3. Create ViewModel
 
 ```csharp
 // ViewModels/MainWindowViewModel.cs
@@ -103,7 +103,7 @@ public class MainWindowViewModel : ObservableObject
 }
 ```
 
-### Avalonia 使用示例
+### Avalonia Usage Example
 
 ```xml
 <Window x:Class="YourApp.Views.MainWindow"
@@ -115,9 +115,9 @@ public class MainWindowViewModel : ObservableObject
 </Window>
 ```
 
-## 📋 命名约定
+## 📋 Naming Conventions
 
-ViewModelLocator 使用以下命名约定自动匹配 View 和 ViewModel：
+ViewModelLocator uses the following naming conventions to automatically match Views and ViewModels:
 
 | View                         | ViewModel                                  |
 | ---------------------------- | ------------------------------------------ |
@@ -125,54 +125,54 @@ ViewModelLocator 使用以下命名约定自动匹配 View 和 ViewModel：
 | `YourApp.Views.MainView`     | `YourApp.ViewModels.MainViewModel`         |
 | `YourApp.Views.UserControl1` | `YourApp.ViewModels.UserControl1ViewModel` |
 
-规则说明：
+Rules:
 
-- 将命名空间中的 `.Views.` 替换为 `.ViewModels.`
-- 如果类名以 `View` 结尾，则添加 `Model` 后缀
-- 否则添加 `ViewModel` 后缀
+- Replace `.Views.` with `.ViewModels.` in the namespace
+- If the class name ends with `View`, append `Model` suffix
+- Otherwise append `ViewModel` suffix
 
-## 💉 依赖注入 API
+## 💉 Dependency Injection API
 
-### 服务注册
+### Service Registration
 
 ```csharp
-// 注册瞬态服务
+// Register transient services
 containerRegistry.Register<IService, ServiceImpl>();
 containerRegistry.Register<MyService>();
 
-// 注册单例服务
+// Register singleton services
 containerRegistry.RegisterSingleton<IService, ServiceImpl>();
 containerRegistry.RegisterSingleton<MySingletonService>();
 
-// 注册作用域服务
+// Register scoped services
 containerRegistry.RegisterScoped<IScopedService, ScopedServiceImpl>();
 
-// 注册实例
+// Register instances
 containerRegistry.RegisterInstance<IConfig>(new Config());
 
-// 使用工厂方法注册
+// Register with factory methods
 containerRegistry.Register<IService>(() => new ServiceImpl());
 containerRegistry.RegisterSingleton<IService>(provider =>
     new ServiceImpl(provider.Resolve<IDependency>()));
 ```
 
-### 服务解析
+### Service Resolution
 
 ```csharp
 var service = ContainerProvider.Current.Resolve<IService>();
 var namedService = ContainerProvider.Current.Resolve<IService>("serviceName");
 ```
 
-## 🙏 致谢
+## 🙏 Acknowledgements
 
-本项目的 ViewModelLocator 实现方式源自于 [Prism Library](https://github.com/PrismLibrary/Prism)。Prism 是一个功能强大的 MVVM 框架，为构建松耦合、可维护和可测试的 XAML 应用程序提供了全面的支持。
+The ViewModelLocator implementation in this project is inspired by [Prism Library](https://github.com/PrismLibrary/Prism). Prism is a powerful MVVM framework that provides comprehensive support for building loosely coupled, maintainable, and testable XAML applications.
 
-AutoLocator 提取并简化了 Prism 中的 ViewModelLocator 概念，使开发者可以在不依赖完整 Prism 框架的情况下使用这一强大的功能。
+AutoLocator extracts and simplifies the ViewModelLocator concept from Prism, allowing developers to use this powerful feature without depending on the full Prism framework.
 
-## 📄 许可证
+## 📄 License
 
-本项目基于 MIT 许可证开源。
+This project is open-sourced under the MIT License.
 
-## 🤝 贡献
+## 🤝 Contributing
 
-欢迎提交 Issue 和 Pull Request！
+Issues and Pull Requests are welcome!
