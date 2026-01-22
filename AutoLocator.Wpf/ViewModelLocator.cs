@@ -21,9 +21,7 @@ namespace AutoLocator.Wpf
 
             var value = (bool?)e.NewValue;
             if (value.HasValue && value.Value)
-            {
                 ViewModelLocationProvider.AutoWireViewModelChanged(d, Bind);
-            }
         }
 
         static void Bind(object view, object viewModel)

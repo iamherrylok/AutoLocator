@@ -5,10 +5,6 @@ namespace AutoLocator.Avalonia;
 
 public static class ViewModelLocationProvider
 {
-    static Dictionary<string, Func<object>> _factories = [];
-
-    static Dictionary<string, Type> _typeFactories = [];
-
     static Func<Type, object> _defaultViewModelFactory
         = type => Activator.CreateInstance(type) ??
                   throw new Exception("Unable to create an instance of " + type.FullName);
@@ -29,20 +25,6 @@ public static class ViewModelLocationProvider
         var viewModel = _defaultViewModelFactory(viewModelType);
 
         setDataContextCallback(view, viewModel);
-    }
-
-    private static object? GetViewModelForView(object view)
-    {
-        var viewKey = view.GetType().ToString();
-
-        return _factories.ContainsKey(viewKey) ? _factories[viewKey]() : null;
-    }
-
-    private static Type? GetViewModelTypeForView(Type view)
-    {
-        var viewKey = view.ToString();
-
-        return _typeFactories.ContainsKey(viewKey) ? _typeFactories[viewKey] : null;
     }
 
     private static Type? DefaultViewTypeToViewModel(Type viewType)

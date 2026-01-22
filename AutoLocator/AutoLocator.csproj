@@ -9,6 +9,7 @@
 
     <ItemGroup>
       <PackageReference Include="DryIoc.dll" Version="6.0.0-preview-09" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
     </ItemGroup>
 
 </Project>

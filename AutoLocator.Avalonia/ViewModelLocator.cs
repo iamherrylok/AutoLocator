@@ -20,17 +20,15 @@ public static class ViewModelLocator
     {
         if (Design.IsDesignMode)
             return;
-        
+
         var value = (bool?)e.NewValue;
         if (value.HasValue && value.Value)
-        {
             ViewModelLocationProvider.AutoWireViewModelChanged(sender, Bind);
-        }
     }
 
     private static void Bind(object view, object viewModel)
     {
-        if(view is StyledElement element)
+        if (view is StyledElement element)
             element.DataContext = viewModel;
     }
 }

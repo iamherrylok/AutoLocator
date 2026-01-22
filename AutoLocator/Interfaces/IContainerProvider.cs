@@ -1,4 +1,4 @@
-﻿namespace AutoLocator
+﻿namespace AutoLocator.Interfaces
 {
     public interface IContainerProvider
     {

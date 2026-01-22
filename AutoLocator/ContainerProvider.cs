@@ -1,4 +1,7 @@
-﻿namespace AutoLocator
+﻿using AutoLocator.Containers;
+using AutoLocator.Interfaces;
+
+namespace AutoLocator
 {
     public static class ContainerProvider
     {
@@ -7,7 +10,17 @@
         public static IContainerBase Current => _container
             ?? throw new InvalidOperationException("You must initialize the Current Container.");
 
-        public static void SetContainer(IContainerBase container)
+        public static void Initialize(ContainerType containerType)
+        {
+            _container = containerType switch
+            {
+                ContainerType.DryIoc => new DryIocContainer(),
+
+                _ => throw new NotSupportedException($"The container type '{containerType}' is not supported.")
+            };
+        }
+
+        public static void Initialize(IContainerBase container)
             => _container = container;
 
         public static void ResetContainer()

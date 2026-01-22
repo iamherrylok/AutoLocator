@@ -1,6 +1,7 @@
-﻿using DryIoc;
+﻿using AutoLocator.Interfaces;
+using DryIoc;
 
-namespace AutoLocator
+namespace AutoLocator.Containers
 {
     public class DryIocContainer : IContainerBase
     {

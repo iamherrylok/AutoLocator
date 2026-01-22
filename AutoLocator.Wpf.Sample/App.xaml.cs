@@ -1,4 +1,6 @@
-﻿using DryIoc;
+﻿using AutoLocator.Containers;
+using AutoLocator.Interfaces;
+using AutoLocator.Wpf.Sample.Services;
 using System.Windows;
 
 namespace AutoLocator.Wpf.Sample
@@ -7,11 +9,15 @@ namespace AutoLocator.Wpf.Sample
     {
         public App()
         {
-            var container = new DryIocContainer();
+            ContainerProvider.Initialize(ContainerType.DryIoc);
+            ViewModelLocationProvider.Initialize(ContainerProvider.Current.Resolve);
 
-            ContainerProvider.SetContainer(container);
+            RegisterTypes(ContainerProvider.Current);
+        }
 
-            ViewModelLocationProvider.SetDefaultViewModelFactory(ContainerProvider.Current.Resolve);
+        private void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.Register<AccountService>();
         }
     }
 }
