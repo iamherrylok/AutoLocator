@@ -9,7 +9,7 @@ public static class ViewModelLocationProvider
         = type => Activator.CreateInstance(type) ??
                   throw new Exception("Unable to create an instance of " + type.FullName);
 
-    public static void SetDefaultViewModelFactory(Func<Type, object> viewModelFactory)
+    public static void Initialize(Func<Type, object> viewModelFactory)
     {
         _defaultViewModelFactory = viewModelFactory;
     }

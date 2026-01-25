@@ -14,6 +14,7 @@ public static class ViewModelLocator
     }
 
     public static void SetAutoWireViewModel(Control obj, bool? value) => obj.SetValue(AutoWireViewModelProperty, value);
+    
     public static bool? GetAutoWireViewModel(Control obj) => obj.GetValue(AutoWireViewModelProperty);
 
     private static void OnAutoWireViewModelPropertyChanged(Control sender, AvaloniaPropertyChangedEventArgs e)

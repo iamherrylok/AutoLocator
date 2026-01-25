@@ -29,5 +29,6 @@
 
 	<ItemGroup>
 		<ProjectReference Include="../AutoLocator.Avalonia/AutoLocator.Avalonia.csproj" />
+		<ProjectReference Include="..\AutoLocator\AutoLocator.csproj" />
 	</ItemGroup>
 </Project>
